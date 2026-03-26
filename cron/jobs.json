@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "info-daily-report",
+      "agentId": "info",
+      "name": "Info 信息管理日报",
+      "enabled": true,
+      "createdAtMs": 1772847000000,
+      "schedule": {
+        "expr": "25 9 * * *",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "生成今日信息管理日报：\n\n## 今日信息管理日报\n\n**时间**：今日 09:25\n**Agent**：Info Manager\n\n### 📊 今日信息统计\n- 收集的信息总数\n- 按类别统计（工作、学习、日程、其他）\n\n### 📁 分类汇总\n- 工作信息汇总\n- 学习笔记汇总\n- 日程安排汇总\n- 其他信息汇总\n\n### 📅 日程提醒\n- 今日日程列表\n- 明日重要日程提醒\n\n### 🔍 信息检索\n- 今日检索记录\n- 常用检索关键词\n\n### 📋 归档情况\n- 归档的文件数量\n- 归档的组织结构\n\n### ⏰ 明日计划\n- 待整理的信息\n- 计划的分类工作\n\n### 📌 注意事项\n- 任何需要用户关注的信息\n- 任何日程冲突或提醒\n- 信息检索建议\n\n请用条理清晰、分类准确的风格生成日报，发送到信息管理群。"
+      },
+      "delivery": {
+        "mode": "announce",
+        "target": {
+          "channel": "feishu",
+          "accountId": "main",
+          "peer": {
+            "kind": "group",
+            "id": "oc_8c93d13434ddd14b62f1f0980e387967"
+          }
+        }
+      }
+    }
+  ]
+}

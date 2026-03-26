@@ -42,6 +42,19 @@ sed -i "s/{{new_categories}}/待填写/g" "$OUTPUT"
 sed -i "s/{{patterns}}/待发现/g" "$OUTPUT"
 sed -i "s/{{connections}}/\n待填写/g" "$OUTPUT"
 
+# 笔记深度思考
+sed -i "s/{{note_thinking}}/\n待填写/g" "$OUTPUT"
+sed -i "s/{{note1_content}}/待提取/g" "$OUTPUT"
+sed -i "s/{{note1_source}}/待记录/g" "$OUTPUT"
+sed -i "s/{{note1_computer_view}}/\n待分析/g" "$OUTPUT"
+sed -i "s/{{note1_philosophy_view}}/\n待分析/g" "$OUTPUT"
+sed -i "s/{{note1_extension}}/\n待探索/g" "$OUTPUT"
+sed -i "s/{{note2_content}}/待提取/g" "$OUTPUT"
+sed -i "s/{{note2_source}}/待记录/g" "$OUTPUT"
+sed -i "s/{{note2_computer_view}}/\n待分析/g" "$OUTPUT"
+sed -i "s/{{note2_philosophy_view}}/\n待分析/g" "$OUTPUT"
+sed -i "s/{{note2_extension}}/\n待探索/g" "$OUTPUT"
+
 # 计算机视角
 sed -i "s/{{algorithmic_thinking}}/\n待填写/g" "$OUTPUT"
 sed -i "s/{{data_structure_insights}}/\n待填写/g" "$OUTPUT"
