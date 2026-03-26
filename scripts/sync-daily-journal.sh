@@ -9,6 +9,7 @@ set -e
 WORKSPACE="/workspace/projects/workspace-info"
 JOURNAL_DIR="$WORKSPACE/daily-journal"
 COMMIT_MSG="Update daily journal: $(date +%Y-%m-%d)"
+GITHUB_TOKEN="${GITHUB_TOKEN:-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}"
 
 # 进入工作目录
 cd "$WORKSPACE"
@@ -16,16 +17,21 @@ cd "$WORKSPACE"
 # 检查是否在git仓库中
 if ! git rev-parse --git-dir > /dev/null 2>&1; then
     echo "⚠️  当前不是git仓库"
-    echo "提示: 需要先初始化git并添加远程仓库"
-    echo ""
-    echo "执行以下命令:"
-    echo "  git init"
-    echo "  git add daily-journal/"
-    echo "  git commit -m 'Init daily journal system'"
-    echo "  git remote add origin https://github.com/YOUR_USERNAME/dailyrepo.git"
-    echo "  git branch -M main"
-    echo "  git push -u origin main"
     exit 1
+fi
+
+# 配置Git用户信息
+git config user.email "info-agent@openclaw.ai" 2>/dev/null || true
+git config user.name "Info Agent" 2>/dev/null || true
+
+# 确保远程URL包含token（如果环境变量中有token）
+if [ -n "$GITHUB_TOKEN" ]; then
+    REMOTE_URL=$(git remote get-url origin)
+    if [[ ! "$REMOTE_URL" =~ ^https://ghp_ ]]; then
+        # 提取URL中的username@部分并替换
+        REMOTE_URL_WITH_TOKEN=$(echo "$REMOTE_URL" | sed "s|https://github.com/|https://${GITHUB_TOKEN}@github.com/|")
+        git remote set-url origin "$REMOTE_URL_WITH_TOKEN"
+    fi
 fi
 
 # 添加daily-journal目录
@@ -44,8 +50,8 @@ git commit -m "$COMMIT_MSG"
 if git push origin main 2>&1; then
     echo "✓ 日记已同步到GitHub"
     echo "✓ 提交信息: $COMMIT_MSG"
+    echo "✓ 仓库: https://github.com/icemagejin/dailyrepo"
 else
-    echo "⚠️  推送失败，请检查网络连接和远程仓库配置"
-    echo "提示: 可以手动执行 'git push origin main'"
+    echo "⚠️  推送失败，请检查网络连接"
     exit 1
 fi
