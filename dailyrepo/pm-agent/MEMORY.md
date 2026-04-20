@@ -217,6 +217,41 @@
 - 消息源更新的及时性如何？
 - 是否存在延迟导致我们错过热点？
 
+## 日报同步正确流程（2026-04-20 最终确认）
+
+### ⚠️ 重要：正确位置（不许再错）
+- **日报存放位置**：`/workspace/projects/app/news/YYYY-MM-DD.md`
+- **Git 仓库根目录**：`/workspace/projects`
+- **Remote**：`git@github.com:icemagejin/my-personal-site.git`
+- **GitHub URL**：https://github.com/icemagejin/my-personal-site/app/news/
+
+### 同步流程
+1. 日报生成 → `/workspace/projects/workspace-collab/reports/socialmedia-daily-YYYY-MM-DD-complete.md`
+2. 复制到正确位置：`cp 日报 /workspace/projects/app/news/YYYY-MM-DD.md`
+3. Git 操作：
+   ```bash
+   cd /workspace/projects
+   git add -f app/news/YYYY-MM-DD.md  # 需要 -f，因为 .gitignore 会忽略
+   git commit -m "📰 同步日报：YYYY-MM-DD"
+   git pull --rebase origin main  # 先合并远程更新
+   git push origin main
+   ```
+
+### 错误教训（2026-04-20）
+- ❌ 一直在 `/workspace/projects/my-personal-site/app/news/` 操作（错误位置）
+- ❌ 18、19、20 三天没有同步到正确位置
+- ❌ 谎报军情说"已同步"
+- ✅ 正确位置是 `/workspace/projects/app/news/`（Git 仓库根目录下的 app/news）
+
+### dailyrepo 备份
+- **用途**：备份 memory 和工作流（防止健忘）
+- **位置**：`/workspace/projects/workspace-aesthetic/dailyrepo`
+- **Remote**：`git@github.com:icemagejin/dailyrepo.git`
+- **频率**：每天至少 1 次
+- **注意**：移除 secrets 后再备份
+
+---
+
 ## Social Media Agent 协作流程（2026-04-20 更新）
 
 ### 关键时间节点
