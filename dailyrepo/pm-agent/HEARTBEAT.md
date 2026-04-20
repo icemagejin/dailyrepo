@@ -20,3 +20,10 @@
 - 路径：`/workspace/projects/workspace-collab/state/state-YYYY-MM-DD.json`
 - 目的：确认日报是否需要整合
 - 频率：早上 09:00-10:00
+
+### 4. 定期备份 memory 和工作流到 dailyrepo（新增）
+- 源路径：`/workspace/projects/workspace-pm/MEMORY.md`、`/workspace/projects/workspace-pm/HEARTBEAT.md`、`/workspace/projects/workspace-pm/memory/*.md`
+- 目标路径：`/workspace/projects/workspace-aesthetic/dailyrepo/pm-agent/`
+- 目的：防止健忘，备份长期记忆和工作流
+- 频率：每天至少 1 次（建议晚上 22:00）
+- 注意：移除 secrets（Notion Token、API Key等）后再备份
