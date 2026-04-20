@@ -562,7 +562,7 @@
 ### 已启用
 - ✅ 飞书消息
 - ✅ Notion 技能（已完全配置）
-  - Notion Token: `ntn_xxxx_NOTION_TOKEN_REDACTED_xxxx`
+  - Notion Token: `ntn_xxxx_REDACTED_xxxx`
   - 思想母库 ID: `33535d2a6ddb8069a74deb83b895bbaa`
   - 日报中心 ID: `33535d2a6ddb8079816dc7e61151d2a4`
   - My Study Doc ID: `33735d2a6ddb8008bbc4f76b90b7a49b`
