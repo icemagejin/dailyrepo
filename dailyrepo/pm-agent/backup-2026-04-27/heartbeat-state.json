@@ -1,0 +1,28 @@
+{
+  "lastChecks": {
+    "inbox": 1776719580000,
+    "collab_notifications": 1776719580000,
+    "daily_report_status": 1776719580000,
+    "report_finalized": true,
+    "git_synced": true
+  },
+  "currentStatus": {
+    "type": "daily_report_completed",
+    "timestamp": "2026-04-21T07:03:00+08:00",
+    "report_file": "/workspace/projects/workspace-collab/reports/daily-2026-04-21-final.md",
+    "git_file": "/workspace/projects/app/news/2026-04-21.md",
+    "git_commit": "8868d64",
+    "git_pushed": true,
+    "github_url": "https://github.com/icemagejin/my-personal-site/blob/main/app/news/2026-04-21.md",
+    "status": "final_completed",
+    "core_insight": "三条头条揭示一个清晰信号：AI竞争从'技术能力'转向'生态能力'",
+    "top3": ["DeepSeek V4参数量1.6T", "三大IPO窗口打开", "2168亿特别国债定向AI"],
+    "delivery_time": "08:00（定时任务推送）",
+    "missing_sections_noted": true
+  },
+  "nextAction": {
+    "time": "08:00",
+    "action": "定时任务自动推送日报到飞书"
+  },
+  "completed": true
+}

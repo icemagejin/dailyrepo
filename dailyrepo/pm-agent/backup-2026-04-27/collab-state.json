@@ -1,0 +1,17 @@
+{
+  "lastUpdated": "2026-04-22T15:07:00+08:00",
+  "socialmedia": {
+    "dailyReport": {
+      "date": "2026-04-22",
+      "status": "pending_review",
+      "filePath": "/workspace/projects/workspace-pm/reports/socialmedia/socialmedia-daily-report-2026-04-22.md",
+      "submittedAt": "2026-04-22T15:07:00+08:00",
+      "itemsCount": 10,
+      "hasTimestamps": true,
+      "hasMethodology": true,
+      "hasToxicComments": true,
+      "podcastToday": false,
+      "notes": "今日无播客更新，收录近期重要播客并标注日期"
+    }
+  }
+}
